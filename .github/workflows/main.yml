@@ -21,23 +21,23 @@ jobs:
        id: ip
        uses: haythem/public-ip@v1.2
 
-  # SSH:
-  #   runs-on: ubuntu-latest
+  SSH:
+    runs-on: ubuntu-latest
 
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - name: Run scripts in server
-  #       uses: appleboy/ssh-action@master
-  #       with:
-  #         key: ${{ secrets.SSH_KEY }}
-  #         host: ${{ secrets.HOST }}
-  #         username: ${{ secrets.USER }}
-  #         script: |
-  #           cd ejlish
-  #           git pull origin main
-  #           cd ejlish
-  #           npm run build
-  #           pm2 restart 0
-  #           pm2 restart 1
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run scripts in server
+        uses: appleboy/ssh-action@master
+        with:
+          key: ${{ secrets.SSH_KEY }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          script: |
+            cd ejlish
+            git pull origin main
+            cd ejlish
+            npm run build
+            pm2 restart 0
+            pm2 restart 1
             
             
