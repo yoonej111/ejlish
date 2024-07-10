@@ -26,7 +26,6 @@ jobs:
           script: |
             cd ejlish
             git pull origin main
-            nvm use 16.0.0
             cd ejlish
             npm run build
             pm2 restart 0
